@@ -1,0 +1,7 @@
+library(EFS)
+data <- read.csv("/data/HWK/DeepGene/utils/EFS_inputs.csv", header = T, stringsAsFactors = F)
+print("数据维度：")
+print(dim(data))
+selection <- c(FALSE, FALSE, FALSE, FALSE, TRUE, TRUE, FALSE, FALSE)
+efs <- ensemble_fs(data, dim(data)[2], selection = selection)
+barplot_fs("CIP", efs, order = TRUE)
